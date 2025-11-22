@@ -1,0 +1,20 @@
+
+build:
+  version: "2.0"
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+loans:
+  version: "2.0"
+  message: "welcome to the loans related dev-envi"
+  license: "loans-service@ibank.com"
+  url: "https://loans-service.com"
+  contactDetails:
+    name: "Pavan- Developer"
+    email: "pavan21@gmail.com"
+    onCallSupport:
+      - "123-456-7890"
+      - "pavan21@gmail.com"
