@@ -1,8 +1,7 @@
 spring:
   application:
     name: accounts-service
-  profiles:
-    active: prod
+ 
 
   datasource:
     url: jdbc:h2:mem:testdb
