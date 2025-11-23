@@ -2,17 +2,12 @@ spring:
   application:
     name: "loans"
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  fetch-registry: true
-  instance:
-    preferIpAddress: true
+  profiles:
+    active: dev
 
-#   =========================
-#   H2 Database Configuration
-#   =========================
+  config:
+    import: "optional:configserver:http://localhost:8888"
+
   datasource:
     url: jdbc:h2:mem:loansdb
     driver-class-name: org.h2.Driver
@@ -33,14 +28,14 @@ eureka:
       path: /h2-console
 
 
-    config:
-      import: "optional:configserver:http://localhost:8888"
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
 
-    profiles:
-        active:
-          - "dev"
-          - "prod"
-          - "qa"
 
 # =========================
 # Management / Actuator
@@ -56,6 +51,7 @@ management:
   info:
     env:
       enabled: true
+
 
 server:
   port: 8083
